@@ -5,18 +5,23 @@
 ## and is able to store an inverted version of it, in itself.
 
 makeCacheMatrix <- function(orgMatrix = matrix()) {
+  ## Set the initial state for the inverted matrix
   invMatrix <- NULL
+  ## Set stores a new matrix, and resets the inverted matrix to the initial state
   set <- function(newMatrix) {
     orgMatrix <<- newMatrix
     invMatrix <<- NULL
   }
+  ## Get returns the original matrix
   get <- function() 
     orgMatrix
+  ## setInv stores the inverted matrix, given as a parameter
   setInv <- function(newInvMatrix) 
     invMatrix <<- newInvMatrix
+  ## getInv return the inverted matrix. Returns NULL when not set.
   getInv <- function() 
     invMatrix
-  
+  ## functions are accesible through a list
   list(set = set, get = get,
        setInv = setInv,
        getInv = getInv) 
